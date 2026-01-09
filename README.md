@@ -23,7 +23,14 @@ Account D のカレンダー ──┘
 - **イベント追跡**: 作成・更新・削除を完全同期
 - **カラー分け**: ソースカレンダーごとに色を設定可能
 
-## セットアップ手順
+## セットアップ手順 (Clasp版 - 推奨)
+
+Claspを使用すると、コマンドラインから簡単にデプロイできます。
+
+### 前提条件
+
+- Node.js >= 22.0.0
+- npm
 
 ### Step 1: カレンダーの共有設定
 
@@ -35,6 +42,65 @@ Account D のカレンダー ──┘
 4. Account A のメールアドレスを入力
 5. 権限を **「予定の表示（すべての予定の詳細）」** に設定
 6. **送信** をクリック
+
+### Step 2: 事前準備 (Account Aで1回のみ)
+
+1. [Apps Script API](https://script.google.com/home/usersettings) を有効化
+2. リポジトリをクローン & 依存関係インストール:
+
+```bash
+git clone https://github.com/khides/calender-gas.git
+cd calender-gas
+npm install
+```
+
+3. Googleアカウントでログイン:
+
+```bash
+npm run login
+```
+
+### Step 3: デプロイ
+
+```bash
+# GASプロジェクト作成
+npm run create
+
+# コードをプッシュ & Calendar API有効化
+npm run deploy
+
+# ブラウザでプロジェクトを開く
+npm run open
+```
+
+### Step 4: 設定と初回同期 (ブラウザで実施)
+
+1. `clasp open` で開いたApps Scriptエディタで `Config.gs` を編集
+2. ソースカレンダーのメールアドレスを設定
+3. `validateSetup` を実行 → 権限を承認
+4. `setupTriggers` を実行
+5. `manualSync` で初回同期
+
+### npm スクリプト一覧
+
+| コマンド | 説明 |
+|---------|------|
+| `npm run login` | Googleアカウントでログイン |
+| `npm run create` | GASプロジェクト作成 |
+| `npm run push` | コードをプッシュ |
+| `npm run deploy` | プッシュ + API有効化 |
+| `npm run open` | ブラウザでエディタを開く |
+| `npm run watch` | ファイル変更を監視して自動プッシュ |
+
+---
+
+## セットアップ手順 (手動版)
+
+Claspを使用しない場合の手順です。
+
+### Step 1: カレンダーの共有設定
+
+(Clasp版と同じ)
 
 ### Step 2: GASプロジェクトの作成
 

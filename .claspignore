@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+package.json
+package-lock.json
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md
+!appsscript.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Clasp config (don't push to GAS)
+.clasp.json
+.clasprc.json

@@ -1,0 +1,26 @@
+{
+  "name": "calender-gas",
+  "version": "1.0.0",
+  "description": "Google Apps Script for syncing multiple Google Calendars to a single destination",
+  "scripts": {
+    "login": "clasp login",
+    "create": "clasp create --title 'Calendar Sync' --type standalone",
+    "push": "clasp push",
+    "pull": "clasp pull",
+    "open": "clasp open",
+    "deploy": "clasp push && clasp apis enable calendar",
+    "watch": "clasp push --watch",
+    "status": "clasp status"
+  },
+  "devDependencies": {
+    "@google/clasp": "^3.0.0",
+    "@types/google-apps-script": "^1.0.0"
+  },
+  "keywords": [
+    "google-apps-script",
+    "calendar",
+    "sync",
+    "clasp"
+  ],
+  "license": "MIT"
+}
