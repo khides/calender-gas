@@ -9,28 +9,22 @@ const CONFIG = {
   destinationCalendarId: 'primary',
 
   // 同期するソースカレンダー (Account Aと共有されている必要があります)
+  // ※ 使用しないサンプルエントリは削除してください
   sourceCalendars: [
     {
-      calendarId: 'example1@gmail.com',  // ← 実際のメールアドレスに変更
-      label: 'Account B',                 // 識別用ラベル
-      privacyMode: 'busy',               // 'full' | 'busy' | 'title-only'
-      enabled: true,                      // false で一時的に無効化
-      colorId: '1'                        // Google Calendar色ID (1-11)
-    },
-    {
-      calendarId: 'example2@gmail.com',  // ← 実際のメールアドレスに変更
-      label: 'Account C',
-      privacyMode: 'busy',
-      enabled: true,
-      colorId: '2'
+      calendarId: 'your-account@gmail.com',  // ← 実際のメールアドレスに変更
+      label: 'Account B',                     // 識別用ラベル
+      privacyMode: 'busy',                   // 'full' | 'busy' | 'title-only'
+      enabled: true,                          // false で一時的に無効化
+      colorId: '1'                            // Google Calendar色ID (1-11)
     }
-    // 必要に応じてカレンダーを追加
+    // ━━━ 複数アカウントを同期する場合は以下を追加 ━━━
     // {
-    //   calendarId: 'example3@gmail.com',
-    //   label: 'Account D',
+    //   calendarId: 'another-account@gmail.com',
+    //   label: 'Account C',
     //   privacyMode: 'busy',
     //   enabled: true,
-    //   colorId: '3'
+    //   colorId: '2'
     // }
   ],
 

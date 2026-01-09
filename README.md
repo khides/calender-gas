@@ -73,13 +73,71 @@ npm run deploy
 npm run open
 ```
 
-### Step 4: 設定と初回同期 (ブラウザで実施)
+### Step 4: 設定と初回同期 (ブラウザのApps Scriptエディタで実施)
 
-1. `clasp open` で開いたApps Scriptエディタで `Config.gs` を編集
-2. ソースカレンダーのメールアドレスを設定
-3. `validateSetup` を実行 → 権限を承認
-4. `setupTriggers` を実行
-5. `manualSync` で初回同期
+`npm run open` でApps Scriptエディタが開きます。
+
+#### 4-1. ソースカレンダーの設定
+
+1. 左サイドバーで **Config.gs** をクリック
+2. `sourceCalendars` 配列内の `calendarId` を実際のメールアドレスに変更:
+
+```javascript
+calendarId: 'your-actual-account@gmail.com',  // ← 実際のメールに変更
+```
+
+3. **複数アカウントを同期する場合**: コメントアウトされたサンプルを参考に、エントリを追加してください
+
+```javascript
+sourceCalendars: [
+  {
+    calendarId: 'account-b@gmail.com',
+    label: 'Account B',
+    privacyMode: 'busy',
+    enabled: true,
+    colorId: '1'
+  },
+  {  // ← カンマを忘れずに追加
+    calendarId: 'account-c@gmail.com',
+    label: 'Account C',
+    privacyMode: 'busy',
+    enabled: true,
+    colorId: '2'
+  }
+]
+```
+
+#### 4-2. 関数の実行方法
+
+Apps Scriptエディタで関数を実行するには:
+
+1. エディタ上部の **関数選択ドロップダウン** (「関数を選択」と表示) をクリック
+2. 実行したい関数名を選択
+3. **実行ボタン (▶)** をクリック
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  [関数を選択 ▼]  [▶ 実行]  [🐛 デバッグ]              │
+│                                                         │
+│  ↑ ここで関数を選んで実行ボタンを押す                  │
+└─────────────────────────────────────────────────────────┘
+```
+
+#### 4-3. 初期設定の実行
+
+以下の順番で関数を実行:
+
+1. `Code.gs`の**`validateSetup`** を選択して実行
+   - 初回は権限の承認画面が表示される
+   - 「権限を確認」→ アカウント選択 → 「詳細」→ 「安全ではないページに移動」→ 「許可」
+   - 実行ログ (下部パネル) で「アクセス可能」と表示されればOK
+
+2. **`setupTriggers`** を選択して実行
+   - 自動同期のトリガーが設定される
+
+3. **`manualSync`** を選択して実行
+   - 初回の同期が実行される
+   - Account A のカレンダーに予定が同期されていることを確認
 
 ### npm スクリプト一覧
 
@@ -139,26 +197,25 @@ Account A で以下を実行:
 
 ### Step 5: 設定の編集
 
-`Config.gs` を開き、以下を編集:
+`Config.gs` を開き、`calendarId` を実際のメールアドレスに変更:
 
 ```javascript
 sourceCalendars: [
   {
-    calendarId: 'your-account-b@gmail.com',  // ← 実際のメールに変更
+    calendarId: 'your-actual-account@gmail.com',  // ← 実際のメールに変更
     label: 'Account B',
     privacyMode: 'busy',
     enabled: true,
     colorId: '1'
-  },
-  {
-    calendarId: 'your-account-c@gmail.com',  // ← 実際のメールに変更
-    label: 'Account C',
-    privacyMode: 'busy',
-    enabled: true,
-    colorId: '2'
   }
+  // 複数アカウントを同期する場合は、上記を参考にエントリを追加
 ]
 ```
+
+**注意**:
+- デフォルトでは1つのアカウントのみ設定されています
+- 複数アカウントを同期する場合は、Config.gs内のコメントを参考にエントリを追加してください
+- 各エントリの間にはカンマ (`,`) が必要です
 
 ### Step 6: 検証と権限付与
 

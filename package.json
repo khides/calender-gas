@@ -4,13 +4,14 @@
   "description": "Google Apps Script for syncing multiple Google Calendars to a single destination",
   "scripts": {
     "login": "clasp login",
-    "create": "clasp create --title 'Calendar Sync' --type standalone",
+    "create": "clasp create-script --title 'Calendar Sync' --type standalone",
     "push": "clasp push",
     "pull": "clasp pull",
-    "open": "clasp open",
-    "deploy": "clasp push && clasp apis enable calendar",
+    "open": "clasp open-script",
+    "deploy": "clasp push && clasp enable-api calendar",
     "watch": "clasp push --watch",
-    "status": "clasp status"
+    "status": "clasp show-file-status",
+    "apis": "clasp list-apis"
   },
   "devDependencies": {
     "@google/clasp": "^3.0.0",
