@@ -309,6 +309,10 @@ sync token無効化、フルシンク実行
 
 これは正常な動作です。GoogleがトークンをリセットしたためスクリプトがフルシンクにフォールバックしたことをUP示します。
 
+## サポート
+
+ [GitHub Issues](https://github.com/khides/calender-sync-gas/issues/new) または [フォーム](https://khides.com/ja/contact) からお願いします。
+
 ## ライセンス
 
 MIT License
