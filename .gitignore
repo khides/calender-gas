@@ -1,0 +1,18 @@
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Clasp (if using local development)
+.clasp.json
+.clasprc.json
+
+# Node modules (if using clasp)
+node_modules/
+
+# Environment variables
+.env
+.env.local
