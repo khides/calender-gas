@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" style="background-color: transparent;">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="triggerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD"/>
+      <stop offset="100%" style="stop-color:#BBDEFB"/>
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF3E0"/>
+      <stop offset="100%" style="stop-color:#FFE0B2"/>
+    </linearGradient>
+    <linearGradient id="moduleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E5F5"/>
+      <stop offset="100%" style="stop-color:#E1BEE7"/>
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFECB3"/>
+      <stop offset="100%" style="stop-color:#FFE082"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Container -->
+  <rect x="20" y="20" width="760" height="510" rx="12" ry="12" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="40" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#424242">Google Apps Script Execution Environment</text>
+
+  <!-- Triggers Section -->
+  <rect x="180" y="60" width="440" height="70" rx="8" ry="8" fill="url(#triggerGrad)" stroke="#1976D2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1565C0" text-anchor="middle">Triggers</text>
+
+  <!-- Time-based Trigger -->
+  <rect x="210" y="95" width="130" height="28" rx="6" ry="6" fill="#BBDEFB" stroke="#1976D2" stroke-width="1"/>
+  <text x="275" y="114" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#0D47A1" text-anchor="middle">⏰ Time-based (15min)</text>
+
+  <!-- Event-based Trigger -->
+  <rect x="460" y="95" width="130" height="28" rx="6" ry="6" fill="#BBDEFB" stroke="#1976D2" stroke-width="1"/>
+  <text x="525" y="114" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#0D47A1" text-anchor="middle">📅 Calendar Change</text>
+
+  <!-- Entry Points -->
+  <rect x="210" y="155" width="130" height="35" rx="6" ry="6" fill="#C8E6C9" stroke="#388E3C" stroke-width="2" filter="url(#shadow)"/>
+  <text x="275" y="177" font-family="monospace" font-size="12" font-weight="600" fill="#1B5E20" text-anchor="middle">runSync()</text>
+
+  <rect x="460" y="155" width="130" height="35" rx="6" ry="6" fill="#C8E6C9" stroke="#388E3C" stroke-width="2" filter="url(#shadow)"/>
+  <text x="525" y="177" font-family="monospace" font-size="11" font-weight="600" fill="#1B5E20" text-anchor="middle">onCalendarChange()</text>
+
+  <!-- Arrows from triggers to entry points -->
+  <line x1="275" y1="123" x2="275" y2="155" stroke="#616161" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="525" y1="123" x2="525" y2="155" stroke="#616161" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- SyncEngine (Core) -->
+  <rect x="320" y="220" width="160" height="55" rx="10" ry="10" fill="url(#coreGrad)" stroke="#F57C00" stroke-width="3" filter="url(#shadow)"/>
+  <text x="400" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#E65100" text-anchor="middle">🔄 SyncEngine</text>
+  <text x="400" y="262" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#F57C00" text-anchor="middle">(Core Logic)</text>
+
+  <!-- Arrows to SyncEngine -->
+  <path d="M275 190 L275 210 L360 210 L360 220" stroke="#616161" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M525 190 L525 210 L440 210 L440 220" stroke="#616161" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Modules Row -->
+  <rect x="100" y="310" width="130" height="45" rx="6" ry="6" fill="url(#moduleGrad)" stroke="#7B1FA2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="165" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#4A148C" text-anchor="middle">🔀 EventMapper</text>
+  <text x="165" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#7B1FA2" text-anchor="middle">(Transform)</text>
+
+  <rect x="335" y="310" width="130" height="45" rx="6" ry="6" fill="url(#moduleGrad)" stroke="#7B1FA2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#4A148C" text-anchor="middle">💾 StorageManager</text>
+  <text x="400" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#7B1FA2" text-anchor="middle">(State Persistence)</text>
+
+  <rect x="570" y="310" width="130" height="45" rx="6" ry="6" fill="url(#moduleGrad)" stroke="#7B1FA2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="635" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#4A148C" text-anchor="middle">📝 Logger</text>
+  <text x="635" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#7B1FA2" text-anchor="middle">(Output)</text>
+
+  <!-- Arrows from SyncEngine to modules -->
+  <path d="M360 275 L360 290 L165 290 L165 310" stroke="#616161" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="275" x2="400" y2="310" stroke="#616161" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M440 275 L440 290 L635 290 L635 310" stroke="#616161" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Google Calendar API -->
+  <rect x="130" y="385" width="180" height="40" rx="6" ry="6" fill="url(#apiGrad)" stroke="#FFA000" stroke-width="2" filter="url(#shadow)"/>
+  <text x="220" y="402" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#E65100" text-anchor="middle">Google Calendar API v3</text>
+  <text x="220" y="416" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#FF8F00" text-anchor="middle">(Advanced Service)</text>
+
+  <!-- Script Properties -->
+  <rect x="490" y="385" width="180" height="40" rx="6" ry="6" fill="url(#apiGrad)" stroke="#FFA000" stroke-width="2" filter="url(#shadow)"/>
+  <text x="580" y="402" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#E65100" text-anchor="middle">Script Properties</text>
+  <text x="580" y="416" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#FF8F00" text-anchor="middle">(Sync Tokens, Event Map)</text>
+
+  <!-- Arrows to API and Properties -->
+  <line x1="165" y1="355" x2="165" y2="370" stroke="#616161" stroke-width="2"/>
+  <line x1="165" y1="370" x2="220" y2="370" stroke="#616161" stroke-width="2"/>
+  <line x1="220" y1="370" x2="220" y2="385" stroke="#616161" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <line x1="400" y1="355" x2="400" y2="370" stroke="#616161" stroke-width="2"/>
+  <line x1="400" y1="370" x2="580" y2="370" stroke="#616161" stroke-width="2"/>
+  <line x1="580" y1="370" x2="580" y2="385" stroke="#616161" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- External Calendars -->
+  <rect x="80" y="460" width="160" height="55" rx="8" ry="8" fill="#FFCDD2" stroke="#D32F2F" stroke-width="2" filter="url(#shadow)"/>
+  <text x="160" y="483" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#B71C1C" text-anchor="middle">📅 Source Calendars</text>
+  <text x="160" y="500" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#C62828" text-anchor="middle">(Account B, C, D...)</text>
+
+  <rect x="320" y="460" width="160" height="55" rx="8" ry="8" fill="#C8E6C9" stroke="#388E3C" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="483" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1B5E20" text-anchor="middle">📅 Destination Calendar</text>
+  <text x="400" y="500" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#2E7D32" text-anchor="middle">(Account A - Primary)</text>
+
+  <!-- Sync Arrow -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#616161"/>
+    </marker>
+    <marker id="syncArrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#F57C00"/>
+    </marker>
+  </defs>
+
+  <line x1="240" y1="487" x2="320" y2="487" stroke="#F57C00" stroke-width="3" marker-end="url(#syncArrowhead)"/>
+  <text x="280" y="478" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#F57C00" text-anchor="middle">Sync</text>
+
+  <!-- Arrows from API to Calendars -->
+  <path d="M180 425 L180 445 L160 445 L160 460" stroke="#616161" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M260 425 L260 445 L400 445 L400 460" stroke="#616161" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+</svg>
